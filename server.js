@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 app.get('/sugestao', (req, res) => {
     const { nome, ingredientes }= req.query;
     console.log(nome, ingredientes);
+
     res.send(`<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -20,7 +21,7 @@ app.get('/sugestao', (req, res) => {
     </head>
     <body>
         <p>Obrigado pela sugestão ${nome}! </p>
-        <p>Os ingrdientes ${ingredientes} serão avaliados!
+        <p>Os ingredientes ${ingredientes} serão avaliados! </p>
     </body>
     </html>`);
 });
@@ -30,11 +31,27 @@ app.get('/contato', (req, res) => {
 });
 
 app.post('/contato', (req, res) => {
-    const dadosCliente = req.query;
-    console.log(dadosCliente)
+    const { nome, email, assunto, mensagem } = req.query;
+    console.log(nome, email, assunto, mensagem)
+
+    res.send(`<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agradecimento</title>
+    </head>
+    <body>
+        <h1> Seja Bem Vindo, ${nome}! </h1>
+        <p>Email: ${email}! </p>
+        <p>Assunto: ${assunto}! </p>
+        <p>Mensagem: ${mensagem}! </p>
+    </body>
+    </html>`);
 });
 
 app.get('/api/lanches', (req, res) => {
+    res.send("Hello")
 });
 
 app.listen(PORT, () => {
