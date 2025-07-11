@@ -9,22 +9,23 @@
     <h1>Deixe o seu contato!</h1>
     <form action="/contato" method="post">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome">
+        <input type="text" id="nome" name="nome" required>
         <br>
 
         <label for="email">Email</label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="email" name="email" required>
         <br>
 
         <label for="assunto">Assunto</label>
-        <input type="text" id="assunto" name="assunto">
+        <input type="text" id="assunto" name="assunto" required>
         <br>
 
         <label for="mensagem">Mensagem</label>
-        <input type="text" id="mensagem" name="mensagem">
+        <input type="text" id="mensagem" name="mensagem" required>
         <br>
 
         <input type="submit" value="Enviar">
     </form>
+    <a href="/">Página Inicial</a>
 </body>
 </html>

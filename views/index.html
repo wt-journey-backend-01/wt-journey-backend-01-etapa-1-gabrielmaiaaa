@@ -8,20 +8,40 @@
 <body>
     <h1>Cardápio</h1>
 
-    <div>
-        
-    </div>
+    <div id="lanchesContainer"></div>
 
     <form action="/sugestao">
         <label for="">Nome:</label>
-        <input type="text" id="nome" name="nome">
+        <input type="text" id="nome" name="nome" required>
         <br>
 
         <label for="">Ingredientes:</label>
-        <input type="text" id="ingredientes" name="ingredientes">
+        <input type="text" id="ingredientes" name="ingredientes" required>
         <br>
          
         <input type="submit" value="Enviar">
     </form>
+    <button><a href="/contato">Contato</a></button>
+
+    <script>
+        fetch('/api/lanches')
+            .then(response => response.json())
+            .then(lanches => {
+                const container = document.getElementById('lanchesContainer');
+
+                lanches.forEach(lanche => {
+                    const lancheCard = document.createElement('div');
+                    lancheCard.className = 'lancheCard';
+
+                    lancheCard.innerHTML = `
+                        <h2>${lanche.nome}</h2>
+                        <p>${lanche.ingredientes}</p>
+                        <p>${lanche.id}</p>
+                    `;
+                    
+                    container.appendChild(lancheCard);
+                });
+            })
+    </script>
 </body>
 </html>

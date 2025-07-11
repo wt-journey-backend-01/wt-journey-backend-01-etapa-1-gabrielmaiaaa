@@ -43,12 +43,13 @@ app.get('/contato', (req, res) => {
 
 app.post('/contato', (req, res) => {
     const { nome, email, assunto, mensagem } = req.body;
+    
     user.nome = nome;
     user.email = email;
     user.assunto = assunto;
     user.mensagem = mensagem;
 
-    res.redirect('/contato-recebido')
+    res.status(200).redirect('/contato-recebido');
 });
 
 app.get('/contato-recebido', (req, res) => {
@@ -62,20 +63,28 @@ app.get('/contato-recebido', (req, res) => {
             <title>Agradecimento</title>
         </head>
         <body>
-            <h1>Nome: ${user.nome}! </h1>
+            <p>Nome: ${user.nome}! </p>
             <p>Email: ${user.email}! </p>
             <p>Assunto: ${user.assunto}! </p>
             <p>Mensagem: ${user.mensagem}! </p>
+            <a href="/">Página Inicial</a>
         </body>
         </html>`
     );
 })
 
 app.get('/api/lanches', (req, res) => {
-    const listaLanches = [];
-    
-    res.send("Hello");
+    const listaLanches = [];   
+    const lanches = require('./public/data/lanches.json');
 
+    while(listaLanches.length !== 3){
+        let indexAleatorio = Math.floor(Math.random() * lanches.length);
+
+        if(!listaLanches.includes(lanches[indexAleatorio]))
+            listaLanches.push(lanches[indexAleatorio]);
+    }
+    
+    res.json(listaLanches);
 });
 
 app.listen(PORT, () => {
