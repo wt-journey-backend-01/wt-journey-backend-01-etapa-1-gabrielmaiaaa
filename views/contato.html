@@ -6,6 +6,25 @@
     <title>Contato</title>
 </head>
 <body>
-    Deixe o seu contato!
+    <h1>Deixe o seu contato!</h1>
+    <form action="/contato" method="post">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome">
+        <br>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        <br>
+
+        <label for="assunto">Assunto</label>
+        <input type="text" id="assunto" name="assunto">
+        <br>
+
+        <label for="mensagem">Mensagem</label>
+        <input type="text" id="mensagem" name="mensagem">
+        <br>
+
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>

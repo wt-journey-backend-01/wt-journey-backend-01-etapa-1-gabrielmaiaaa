@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "nome": "DevBurger Clássico",
+    "ingredientes": "Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"
+  },
+  {
+    "id": 2,
+    "nome": "Burger de Bacon",
+    "ingredientes": "Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue"
+  },
+  {
+    "id": 3,
+    "nome": "Commit Veggie",
+    "ingredientes": "Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas"
+  },
+  {
+    "id": 4,
+    "nome": "Sabor Supremo",
+    "ingredientes": "Pão de batata, Carne 200g, Queijo muçarela, Presunto, Alface, Tomate, Maionese temperada"
+  },
+  {
+    "id": 5,
+    "nome": "Crocante do Chef",
+    "ingredientes": "Pão tradicional, Carne 150g, Queijo prato, Cebola crispy, Bacon, Molho especial"
+  },
+  {
+    "id": 6,
+    "nome": "Explosão de Queijo",
+    "ingredientes": "Pão brioche, Carne 180g, Queijo cheddar duplo, Queijo prato, Molho de queijo"
+  },
+  {
+    "id": 7,
+    "nome": "Delícia Vegana",
+    "ingredientes": "Pão integral, Hambúrguer de lentilha, Queijo vegano, Alface, Tomate, Maionese vegana"
+  },
+  {
+    "id": 8,
+    "nome": "Frango Suculento",
+    "ingredientes": "Pão de milho, Filé de frango grelhado, Queijo muçarela, Alface, Tomate, Molho de ervas"
+  },
+  {
+    "id": 9,
+    "nome": "Duplo Sabor",
+    "ingredientes": "Pão australiano, Dois hambúrgueres de carne, Queijo cheddar, Bacon, Molho barbecue"
+  },
+  {
+    "id": 10,
+    "nome": "Clube do Vegetal",
+    "ingredientes": "Pão integral, Hambúrguer de grão de bico, Alface, Tomate, Cenoura ralada, Maionese de ervas"
+  }
+]
