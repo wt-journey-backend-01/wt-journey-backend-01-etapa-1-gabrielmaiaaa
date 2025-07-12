@@ -4,8 +4,6 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-var user = null;
-
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
@@ -16,7 +14,7 @@ app.get('/', (req, res) => {
 app.get('/sugestao', (req, res) => {
     const { nome, ingredientes } = req.query;
 
-    if(!nome) {
+    if(!nome || !ingredientes) {
         res.redirect('/not-found');       
     }
 
@@ -48,17 +46,11 @@ app.get('/contato', (req, res) => {
 });
 
 app.post('/contato', (req, res) => {
-    user = req.body;
-
-    res.redirect('/contato-recebido');
-});
-
-app.get('/contato-recebido', (req, res) => {
-    if(!user) {
-        res.redirect('/not-found');
-    }
+    const { nome, email, assunto, mensagem } = req.body;
     
-    const { nome, email, assunto, mensagem } = user
+    if(!nome || !email || !assunto || !mensagem) {
+        res.redirect('/not-found');       
+    }
 
     res.status(200).send(`
         <!DOCTYPE html>
@@ -83,7 +75,7 @@ app.get('/contato-recebido', (req, res) => {
         </body>
         </html>`
     );
-})
+});
 
 app.get('/api/lanches', (req, res) => {
     const listaLanches = [];   
