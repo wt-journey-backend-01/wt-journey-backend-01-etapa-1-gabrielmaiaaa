@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevBurger</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Cardápio</h1>
 
     <div id="lanchesContainer"></div>
+    
+    <h1 id="sugestao">Sugestão</h1>
+
+    <p id="sugestao">Deixe uma sugestão de quais outros tipos de comidas poderíamos ter em nosso cardápio</p>
 
     <form action="/sugestao">
-        <label for="">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <label for="">Nome</label>
+        <input type="text" placeholder="Nome" id="nome" name="nome" required>
         <br>
 
-        <label for="">Ingredientes:</label>
-        <input type="text" id="ingredientes" name="ingredientes" required>
+        <label for="">Ingredientes</label>
+        <input type="text" placeholder="Ingredientes" id="ingredientes" name="ingredientes" required>
         <br>
          
-        <input type="submit" value="Enviar">
+        <input type="submit" id="botao" value="Enviar">
     </form>
-    <button><a href="/contato">Contato</a></button>
+
+    <a href="/contato">Contato</a>
 
     <script>
         fetch('/api/lanches')
@@ -31,16 +37,20 @@
 
                 lanches.forEach(lanche => {
                     const lancheCard = document.createElement('div');
-                    lancheCard.className = 'lancheCard';
+                    lancheCard.className = 'card';
 
                     lancheCard.innerHTML = `
                         <h2>${lanche.nome}</h2>
                         <p>${lanche.ingredientes}</p>
-                        <p>${lanche.id}</p>
+                        <p id="idLanche">${lanche.id}</p>
                     `;
                     
                     container.appendChild(lancheCard);
                 });
+            })
+            .catch(err => {
+                document.getElementById('lanchesContainer').innerHTML = 
+                    '<p>Não foi possível carregar o cardápio. Tente novamente mais tarde.</p>';
             })
     </script>
 </body>
