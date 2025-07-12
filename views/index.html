@@ -53,6 +53,7 @@
                 });
             })
             .catch(err => {
+                console.error('Erro ao carregar lanches:', err);
                 document.getElementById('lanchesContainer').innerHTML = 
                     '<p>Não foi possível carregar o cardápio. Tente novamente mais tarde.</p>';
             })

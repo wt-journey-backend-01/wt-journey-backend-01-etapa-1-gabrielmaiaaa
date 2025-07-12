@@ -77,16 +77,30 @@ app.post('/contato', (req, res) => {
     );
 });
 
-app.get('/api/lanches', (req, res) => {
-    const listaLanches = [];   
-    const lanches = require('./public/data/lanches.json');
+function escolherLancheAleatorio(lanches) {
+    const listaLanchesTemp = []
 
-    while(listaLanches.length !== 3){
+    while(listaLanchesTemp.length !== 3){
         let indexAleatorio = Math.floor(Math.random() * lanches.length);
 
-        if(!listaLanches.includes(lanches[indexAleatorio]))
-            listaLanches.push(lanches[indexAleatorio]);
+        if(!listaLanchesTemp.includes(lanches[indexAleatorio]))
+            listaLanchesTemp.push(lanches[indexAleatorio]);
     }
+
+    return listaLanchesTemp
+}
+
+app.get('/api/lanches', (req, res) => {
+    let lanches = []
+
+    try{
+        lanches = require('./public/data/lanches.json');
+    } catch (err) {
+        console.error("Erro ao acessar o lanches.json: ", err.message);
+        return res.json({ err: "Erro ao carregar dados" });
+    }
+    
+    const listaLanches = escolherLancheAleatorio(lanches);
     
     res.json(listaLanches);
 });
